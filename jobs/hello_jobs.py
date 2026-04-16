@@ -8,4 +8,4 @@ class HelloJobs(Job):
     def run(self):
         self.logger.debug("This is from the Git repo.")
 
-
+register_jobs(HelloJobs)
