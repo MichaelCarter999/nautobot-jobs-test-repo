@@ -36,7 +36,7 @@ COMMAND_CHOICES = (
 # Utility helpers
 # ------------------------------------------------------
 
-def open_ssh(host, username, password, timeout=15):
+def open_ssh(host, username, password, timeout=60):
     """Open and return a Paramiko SSH client."""
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
