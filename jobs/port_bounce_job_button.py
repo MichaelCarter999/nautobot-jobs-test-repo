@@ -22,14 +22,19 @@ class PortBouncerButton(JobButtonReceiver):
             self.logger.fatal("Device does not have a platform set.")
             return
 
-        if obj.device.platform.network_driver_mappings.get("netmiko") is None:
-            self.logger.fatal("Device mapping for Netmiko is not present, please set.")
+        
+        netmiko_driver = obj.device.platform.network_driver.get("netmiko")
+
+        if not netmiko_driver:
+            self.logger.fatal(
+                f"No Netmiko driver mapping defined for platform {obj.device.platform}"
+            )
             return
 
         
         # Connect to the device, get some output - comment this out if you are simulating
         net_connect = ConnectHandler(
-            device_type=obj.device.platform.network_driver_mappings["netmiko"],
+            device_type=netmiko_driver,
             host=obj.device.primary_ip.host,  # or device.name if your name is an FQDN
             username="admin",
             password="admin",
