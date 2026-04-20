@@ -1,6 +1,7 @@
 from nautobot.apps.jobs import Job, register_jobs, JobButtonReceiver
 from netmiko import ConnectHandler
 
+name = "Network Operations"
 
 class PortBouncerButton(JobButtonReceiver):
 
