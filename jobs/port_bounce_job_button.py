@@ -1,5 +1,6 @@
 from nautobot.apps.jobs import Job, register_jobs, JobButtonReceiver
 from netmiko import ConnectHandler
+import json
 
 name = "Network Operations"
 
@@ -22,8 +23,15 @@ class PortBouncerButton(JobButtonReceiver):
             self.logger.fatal("Device does not have a platform set.")
             return
 
+        driver_data = obj.device.platform.network_driver
         
-        netmiko_driver = obj.device.platform.network_driver.get("netmiko")
+        if isinstance(driver_data, str):
+            try:
+                driver_data = json.loads(driver_data)
+            except json.JSONDecodeError:
+                driver_data = {}
+
+        netmiko_driver = driver_data.get("netmiko")
 
         if not netmiko_driver:
             self.logger.fatal(
