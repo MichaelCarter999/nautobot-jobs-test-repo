@@ -1,6 +1,6 @@
 from nautobot.apps.jobs import Job, register_jobs, FileVar
 
-Name="File Upload Jobs"
+name = "File Upload Jobs"
 
 class FileUpload(Job):
     class Meta:
