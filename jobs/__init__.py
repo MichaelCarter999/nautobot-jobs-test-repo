@@ -13,4 +13,5 @@ register_jobs(
     ParamikoShowCommands,
     ParamikoChangeAccessVLAN,
     ParamikoChangeAccessVLANByObject,
+    FileUpload,
 )
