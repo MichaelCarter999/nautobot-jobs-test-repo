@@ -9,7 +9,6 @@ register_jobs(
     ParamikoCommandRunner,
     ParamikoChangeVLAN,
     ParamikoChangeVLAN_by_Function,
-    PortBouncerButton,
     ParamikoShowCommands,
     ParamikoChangeAccessVLAN,
     ParamikoChangeAccessVLANByObject,
