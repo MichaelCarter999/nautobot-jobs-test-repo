@@ -3,7 +3,7 @@ from .hello_jobs import HelloJobs
 from .paramiko_jobs import ParamikoCommandRunner, ParamikoChangeVLAN, ParamikoChangeVLAN_by_Function
 from .paramiko_jobs_v2 import ParamikoShowCommands, ParamikoChangeAccessVLAN, ParamikoChangeAccessVLANByObject
 # from .port_bounce_job_button import PortBouncerButton
-from .file_upload import FileUpload
+from .file_upload import FileUpload, FileUpload_2
 
 register_jobs(
     HelloJobs,
@@ -14,4 +14,5 @@ register_jobs(
     ParamikoChangeAccessVLAN,
     ParamikoChangeAccessVLANByObject,
     FileUpload,
+    FileUpload_2,
 )
